@@ -1,5 +1,4 @@
 package com.mercado;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -93,7 +92,7 @@ public class Main {
                     double novoCusto = scanner.nextDouble();
                     System.out.println("Digite a nova quantidade do produto:");
                     int novaQuantidade = scanner.nextInt();
-                    mercado.alterarProduto(identificador, novoCodigo, novoPrecoVenda, novoCusto, novaQuantidade);
+                    mercado.alterarProduto(identificador, novoCodigo, novoNome, novoPrecoVenda, novoCusto, novaQuantidade);
                     break;
                 case 4:
                     System.out.println("Digite o nome ou código do produto a ser buscado:");
