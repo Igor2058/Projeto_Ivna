@@ -23,28 +23,30 @@ public class Mercado {
         produtos.removeIf(produto -> produto.getNome().equals(identificador) || produto.getCodigo().equals(identificador));
     }
 
-    public void alterarProduto(String identificador, String novoCodigo, double novoPrecoVenda, double novoCusto, int novaQuantidade) {
-        for (Produto produto : produtos) {
-            if (produto.getNome().equals(identificador) || produto.getCodigo().equals(identificador)) {
-                for (Produto p : produtos) {
-                    if (p.getCodigo().equals(novoCodigo) && !p.getCodigo().equals(produto.getCodigo())) {
-                        System.out.println("Erro: Código do produto já existe.");
-                        return;
-                    }
-                    if (p.getNome().equals(novoCodigo) && !p.getNome().equals(produto.getNome())) {
-                        System.out.println("Erro: Nome do produto já existe.");
-                        return;
-                    }
+    public void alterarProduto(String identificador, String novoCodigo, String novoNome, double novoPrecoVenda, double novoCusto, int novaQuantidade) {
+    for (Produto produto : produtos) {
+        if (produto.getNome().equals(identificador) || produto.getCodigo().equals(identificador)) {
+            for (Produto p : produtos) {
+                if (p.getCodigo().equals(novoCodigo) && !p.getCodigo().equals(produto.getCodigo())) {
+                    System.out.println("Erro: Código do produto já existe.");
+                    return;
                 }
-                produto.setCodigo(novoCodigo);
-                produto.setPrecoVenda(novoPrecoVenda);
-                produto.setCusto(novoCusto);
-                produto.setQuantidade(novaQuantidade);
-                return;
+                if (p.getNome().equals(novoNome) && !p.getNome().equals(produto.getNome())) {
+                    System.out.println("Erro: Nome do produto já existe.");
+                    return;
+                }
             }
+            produto.setCodigo(novoCodigo);
+            produto.setNome(novoNome);
+            produto.setPrecoVenda(novoPrecoVenda);
+            produto.setCusto(novoCusto);
+            produto.setQuantidade(novaQuantidade);
+            System.out.println("Produto alterado com sucesso.");
+            return;
         }
-        System.out.println("Produto não encontrado.");
     }
+    System.out.println("Produto não encontrado.");
+}
 
     public void buscarProduto(String identificador) {
         for (Produto produto : produtos) {
